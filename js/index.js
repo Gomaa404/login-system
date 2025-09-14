@@ -75,24 +75,8 @@ if (username) {
   if (logoutBtn) {
     logoutBtn.addEventListener("click", function (e) {
       e.preventDefault();
-
-      Swal.fire({
-        title: "Are you sure?",
-        text: "You will be logged out!",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, logout"
-      }).then((result) => {
-        if (result.isConfirmed) {
-          localStorage.removeItem("currentUser");
-          Swal.fire("Logged out", "You have been logged out successfully", "success")
-            .then(() => {
-              window.location.href = "index.html"; // صفحة تسجيل الدخول
-            });
-        }
-      });
+      localStorage.removeItem("currentUser");
+      window.location.href = "index.html";
     });
   }
 }
